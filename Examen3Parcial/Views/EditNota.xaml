@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Examen3Parcial.Views.EditNota">
+    <VerticalStackLayout>
+
+        <Label Text="Edite La Nota" HorizontalOptions="Center"/>
+
+        <Label Text="Imagen:"/>
+        <Image x:Name="capturedImage" WidthRequest="200" HeightRequest="200"/>
+        <Button Text="Tomar nueva foto"
+             x:Name="btnimagen"
+            Clicked="btnimagen_Clicked"
+            Margin="10"/>
+        <Label Text="Descripcion:"/>
+        <Entry x:Name="Descripciontxt" Placeholder="Descripcion de la nota"/>
+        <DatePicker 
+            x:Name="datePicker" 
+            MinimumDate="{x:Static sys:DateTime.Today}" />
+
+        <TimePicker x:Name="timePicker" />
+
+        <Button 
+            Text="Validar Fecha y Hora"
+            Clicked="OnValidateDateTimeClicked" />
+
+        <Label x:Name="resultLabel" Text="" />
+
+        <Entry
+            x:Name="resulEntry"/>
+
+        <Button Text="Actualizar" Clicked="Button_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

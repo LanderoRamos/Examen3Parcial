@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Examen3Parcial.Views.Agregar"
+             >
+    <ScrollView>
+
+        <VerticalStackLayout>
+
+            <Label 
+            Text="Agregar Datos en Firebase"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+            <Label
+                Text="Introduzca una Nota"
+                Margin="10"/>
+
+            <Entry
+                x:Name="descripcion"
+                Placeholder="Escriba aqui"/>
+
+            <Image x:Name="capturedImage"
+               WidthRequest="200"
+               HeightRequest="200"/>
+
+            <Button
+                Text="Capturar Lugar"
+                x:Name="btnimagen"
+                Clicked="btnimagen_Clicked"
+                Margin="10"/>
+
+           
+
+            <Label Text="Selecciona una fecha:" />
+
+            <DatePicker 
+                x:Name="datePicker" 
+                MinimumDate="{x:Static sys:DateTime.Today}" />
+
+            <TimePicker x:Name="timePicker" />
+
+            <Button 
+                Text="Validar Fecha y Hora"
+                Clicked="OnValidateDateTimeClicked" />
+
+            <Label x:Name="resultLabel" Text="" />
+
+            <Entry
+                x:Name="resulEntry"/>
+
+            <Button
+                Text="Agregar"
+                x:Name="btnagregar"
+                Clicked="btnagregar_Clicked"
+                Margin="10"/>
+
+            <!--Button
+                Text="Lista de lugares"
+                x:Name="btnlista"
+                Clicked="btnlista_Clicked"
+                Margin="10"/-->
+
+            <Button
+                Text="Salir"
+                x:Name="btnsalir"
+                Clicked="btnsalir_Clicked"
+                Margin="10"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

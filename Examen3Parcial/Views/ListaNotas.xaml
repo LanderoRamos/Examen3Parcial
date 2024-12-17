@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:Examen3Parcial.Helper"
+             x:Class="Examen3Parcial.Views.ListaNotas">
+
+
+    <ContentPage.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="DarkBlue"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HeightRequest" Value="35"/>
+        </Style>
+
+        <ResourceDictionary>
+            <local:Base64ToImageConverter x:Key="Base64ToImageConverter" />
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+
+
+    <StackLayout>
+
+        <Grid Padding="5" RowSpacing="0">
+            <BoxView Color="Blue" HeightRequest="30" VerticalOptions="Start"/>
+            <Grid ColumnDefinitions="*,*,Auto" VerticalOptions="FillAndExpand">
+                <Label Text="Notas" Grid.Column="0" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="Foto" Grid.Column="1" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="Accion" Grid.Column="2" TextColor="White" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+            </Grid>
+        </Grid>
+
+        <ListView x:Name="NotasListView" HasUnevenRows="True" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*,*,Auto" Padding="10" VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding DESCRIPCION}" Grid.Column="0" VerticalOptions="Start"/>
+                            <Label Text="{Binding FECHA}" Margin="20" Grid.Column="0" VerticalOptions="End" />
+                            <Image Source="{Binding PHOTO_RECORD, Converter={StaticResource Base64ToImageConverter}}" HeightRequest="100" Grid.Column="1"/>
+                            <StackLayout Grid.Column="2">
+                                <Button Text="Editar" Clicked="Button_Clicked" Style="{StaticResource ButtonStyle}"/>
+                                <Button Text="Eliminar" Clicked="Button_Clicked_1" Style="{StaticResource ButtonStyle}"/>
+                                <Button Text="Descripcion" Clicked="Button_Clicked_2" Style="{StaticResource ButtonStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+
+</ContentPage>
